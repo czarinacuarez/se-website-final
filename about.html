@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <link rel="shortcut icon" href="images/uweeklogo.png">
+        <title>NUFV University Week</title>
+        <link rel="stylesheet" href="/css/styles.css">
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.bunny.net">
+        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            // Custom Tailwind CSS Configuration
+            document.addEventListener('DOMContentLoaded', function () {
+                const script = document.createElement('script');
+                script.innerHTML = `
+                    tailwind.config = {
+                        theme: {
+                            extend: {
+                                animation: {
+                                    'infinite-scroll': 'infinite-scroll 25s linear infinite',
+                                },
+                                keyframes: {
+                                    'infinite-scroll': {
+                                        from: { transform: 'translateX(0)' },
+                                        to: { transform: 'translateX(-100%)' },
+                                    },
+                                },
+                                spacing: {
+                                    'large': '40rem',
+                                    'about': '35rem',
+                                    'superlg': '40rem',
+                                },
+                                fontFamily: {
+                                    sans: ['Figtree', 'system-ui', 'sans-serif'],
+                                },
+                            },
+                        },
+                    };
+                `;
+                document.head.appendChild(script);
+            });
+        </script>
+        
+    </head>
+  
+    <body class = "antialiased">
+
+    
+        <nav class="bg-blue-800  fixed w-full z-20 top-0 start-0">
+            <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <a href="" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <img src="images/u-week-navbar.svg" class="md:h-10 h-8 w-full" alt="">
+            </a>
+            <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+             
+                <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-yellow-400 hover:text-black focus:outline-none focus:ring-2 focus:ring-gray-200  " aria-controls="navbar-sticky" aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+                    </svg>
+                </button>
+              </div>
+            <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+              <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-blue-800   ">
+                <li>
+                  <a href="index.html" class="block py-2 px-3 rounded md:hover:text-yellow-300 hover:bg-yellow-400 md:hover:bg-transparent  md:text-white md:p-0
+                  md:text-white   " aria-current="page">Home</a>
+                </li>
+                <li>
+                  <a href="about.html" class="block py-2 px-3 text-gray-900 rounded  hover:text-black md:hover:text-yellow-300  hover:bg-yellow-400 md:hover:bg-transparent md:hover:text-white md:p-0
+                                 md:text-yellow-300
+
+                     ">Event Overview</a>
+                </li>
+
+                <li>
+                  <a href="se.html" class="block py-2 px-3 text-gray-900 rounded  hover:text-black md:hover:text-yellow-300  hover:bg-yellow-400 md:hover:bg-transparent md:hover:text-white md:p-0
+                     md:text-white 
+                     ">About Us</a>
+                </li>
+
+                <li>
+                  <a href="team.html" class="block py-2 px-3 text-gray-900 rounded  hover:text-black md:hover:text-yellow-300  hover:bg-yellow-400 md:hover:bg-transparent md:hover:text-white md:p-0
+                    md:text-white 
+                     ">Our Team</a>
+                </li>
+                <li>
+                    <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" class="flex items-center justify-between w-full py-2 px-3 text-gray-900 md:hover:text-yellow-300 hover:bg-yellow-400 md:hover:bg-transparent hover:text-black  md:text-white md:border-0 md:hover:text-white md:p-0 md:w-auto     ">Sports & Contests <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+          </svg></button>
+                    <!-- Dropdown menu -->
+                    <div id="dropdownNavbar" class="z-10 hidden font-normal bg-blue-800 divide-y divide-gray-100 rounded-lg shadow w-44  ">
+                        <ul class="py-2 text-sm text-gray-700 " aria-labelledby="dropdownLargeButton">
+                         
+                          <li>
+                            <a href="msnu.html" class="block px-4 py-2  text-white hover:bg-yellow-400 hover:text-black ">Mr. and Ms. NU</a>
+                          </li> 
+                          <li>
+                            <a href="result.html" class="block px-4 py-2 text-sm text-white text-gray-700 hover:bg-yellow-400 md:hover:bg-yellow-400 hover:bg-yellow-400 hover:text-black  ">Results</a>
+                          </li>
+                        </ul>
+                </li>
+              </ul>
+            </div>
+            </div>
+          </nav>
+    
+          <div class="relative mt-18  sm:justify-center sm:items-center min-h-screen md:mt-3 bg-dots-darker bg-center bg-white dark:bg-dots-lighter  selection:bg-red-500 selection:text-white">
+            <div class = "">
+                <img class = "max-h-about w-full bg-cover" src = "images/aboutcover.png">
+            </div>
+            <div class = "p-5 md:max-w-4xl mx-auto md:py-10">
+                <h1 class = "text-4xl  sm:text-5xl  py-2 text-center  text-blue-800 font-extrabold ">THE UNIVERSITY WEEK FESTIVAL
+                </h1>
+                <h1 class = "text-3xl  sm:text-4xl  py-2 text-center  text-blue-800 font-extrabold ">About
+                </h1>
+                <p class = " text-base lg:text-lg lg:text-justify  mx-auto text-justify  px-2 py-2">University Week stands out as
+                    the highly anticipated annual event, serving as a platform to exhibit diverse talents and skills of both
+                    students and faculty members through various sports and activities.
+        
+        
+                    <br><br>
+                    This year, the NU Fairview Student Executives, in collaboration with the Student Development and
+                    Activities Office, are prepared to elevate the stature of U-Week 2024 under the theme <b> ‘maNUfesting:
+                    Fated Victors.’ <b>
+        
+                </p>
+                <img>
+        
+                
+            
+            </div>
+        
+               
+            <h1 class = "text-4xl  sm:text-5xl  py-2 text-center px-2 text-blue-800 font-extrabold ">ma<span class = "text-yellow-400">'NU'</span>festing  <span class = "text-yellow-400">F</span>ated <span class = "text-yellow-400">V</span>ictors
+            </h1>
+        
+            <div class = " grid-cols-1 lg:grid-cols-2 grid md:p-6 py-5 lg:py-10 md:max-w-7xl mx-auto">
+                <div class = "px-8 flex items-center justify-center">
+                   
+                    <p class = " text-base font-normal lg:text-lg lg:text-justify px-2 text-justify lg:pe-10 py-2">Our visions portray Nationalians as individuals who not only excel but also choose to embody the spirit of champions. The distinguished week-long affair aims to unite students from all programs and schools in a series of meticulously curated sports tournaments and cultural activities, promoting teamwork, healthy competition, and a profound sense of belonging. 
+                        <br><br>
+                        This event will not merely emphasize the competitive aspect but also underscore our commitment to advancing the Sustainable Development Goals outlined by the United Nations.
+                        <b>
+        
+                    </p>
+                   
+                </div>
+        
+                <div class = "flex md:justify-end my-2 md:my-0 px-8 justify-center">
+                    <img class = "lg:max-w-md lg:h-92 max-w-xs h-60 w-full h-full object-cover rounded-xl hover:brightness-110 hover:opacity-90 cursor-pointer"
+                        src="images/uweekillustrate.png">
+                </div>
+            </div>
+        
+            <div class = "p-5 md:max-w-7xl mx-auto md:py-10">
+          
+                <h1 class = "text-3xl  sm:text-4xl  py-2 text-center  text-blue-800 font-extrabold ">Objectives
+                </h1>
+              
+        
+                <ul class=" md:max-w-4xl space-y-1  list-disc list-inside text-base px-2 lg:text-lg lg:text-justify  mx-auto text-justify   py-2 font-normal">
+                    <li>
+                        Cultivate Sportsmanship and Leadership: Cultivate an environment that fosters the development of sportsmanship and leadership qualities among participants, encouraging them to exhibit integrity, respect, and resilience both on and off the field.            </li>
+                    <li>
+                        Commemorate Tradition and Heritage: Commemorate the rich tradition and heritage of National University through a series of culturally significant events and activities, paying homage to our institution's core values and United Nations’ Sustainable Development Goals.            </li>
+                    <li>
+                        Unify the Student Body: Unify the diverse student body of NU Fairview by providing inclusive platforms for engagement, interaction, and collaboration, fostering a sense of unity, belonging, and pride among all participants.            </li>
+                </ul>
+               
+            </div>
+        
+            <div class = "grid-cols-1 lg:grid-cols-2 grid md:p-6 py-5 lg:py-10 md:max-w-7xl mx-auto">
+                <div class = "px-8 flex items-center justify-center">
+                   
+                    <img class = "lg:max-w-md max-w-xs  w-full h-full object-cover rounded-xl hover:brightness-110 hover:opacity-90 cursor-pointer"
+                    src="images/completelogo.png">
+        
+                  
+                   
+                </div>
+        
+                <div class = "flex my-2 md:my-0 px-8 justify-center flex-col ">
+                    <h1 class = "text-3xl  sm:text-5xl text-center md:text-right text-blue-800 font-extrabold ">NUFV
+                        UNIVERSITY WEEK 2024
+                    </h1>
+                    <p class = " text-base font-normal lg:text-lg md:text-right px-2 text-justify py-2">
+                       
+                        <b>James Animo Flores, BS Architecture<br>
+                            NUFV SE U-Week Logo Design Contest 2024 Winner</b>
+                        <br><br>
+                        The University Week Logo shall not be changed after three (3) academic years. The year of the logo can be modified.The University Week Logo shall not be changed after three (3) academic years. The year of the logo can be modified.                <b>
+        
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <footer class="p-4 bg-blue-800 sm:p-6 dark:bg-gray-800 shadow-2xl">
+            <div class="mx-auto max-w-screen-xl">
+                <div class="md:flex md:justify-between">
+                    <div class="mb-6 md:mb-0">
+                        <a href="" class="flex items-center">
+                            <img src="images/uweeklogo.png" class="mr-3 h-12 w-12" alt="FlowBite Logo" />
+                            <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">NUFV UWEEK 2024</span>
+                        </a>
+                    </div>
+                    <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+                        <div>
+                            <h2 class="mb-6 text-sm font-semibold text-white uppercase ">MAIN</h2>
+                            <ul class="text-gray-50">
+                                <li class="mb-4">
+                                    <a href="index.html" class="hover:underline">Home</a>
+                                </li>
+                                <li class="mb-4">
+                                    <a href="about.html" class="hover:underline">Event Overview</a>
+                                </li>
+                                <li class="mb-4">
+                                    <a href="se.html" class="hover:underline">About Us</a>
+                                </li>
+                                <li >
+                                    <a href="team.html" class="hover:underline">Our Team</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h2 class="mb-6 text-sm font-semibold text-white uppercase dark:text-white">SPORTS & CONTESTS</h2>
+                            <ul class="text-white ">
+                                <li class="mb-4">
+                                    <a href="msnu.html" class="hover:underline">MR. and MS. NU</a>
+                                </li>
+                                <li class="mb-4">
+                                    <a href="result.html" class="hover:underline">Results</a>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                       
+                    </div>
+                </div>
+                <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+                <div class="sm:flex sm:items-center sm:justify-between">
+                    <span class="text-sm text-white sm:text-center">© 2024 <a href="" class="hover:underline">Google Developer Students Club NU Fairview</a>. All Rights Reserved.
+                    </span>
+                    <div class="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
+                        <a href="#" class="text-white hover:text-blue-100 dark:hover:text-white">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg>
+                        </a>
+                        <a href="#" class="text-white hover:text-blue-100 dark:hover:text-white">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" /></svg>
+                        </a>
+                        <a href="#" class="text-white hover:text-blue-100 dark:hover:text-white">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" /></svg>
+                        </a>
+                        <a href="#" class="text-white hover:text-blue-100 dark:hover:text-white">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" /></svg>
+                        </a>
+                        <a href="#" class="text-white hover:text-blue-100 dark:hover:text-white">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c5.51 0 10-4.48 10-10S17.51 2 12 2zm6.605 4.61a8.502 8.502 0 011.93 5.314c-.281-.054-3.101-.629-5.943-.271-.065-.141-.12-.293-.184-.445a25.416 25.416 0 00-.564-1.236c3.145-1.28 4.577-3.124 4.761-3.362zM12 3.475c2.17 0 4.154.813 5.662 2.148-.152.216-1.443 1.941-4.48 3.08-1.399-2.57-2.95-4.675-3.189-5A8.687 8.687 0 0112 3.475zm-3.633.803a53.896 53.896 0 013.167 4.935c-3.992 1.063-7.517 1.04-7.896 1.04a8.581 8.581 0 014.729-5.975zM3.453 12.01v-.26c.37.01 4.512.065 8.775-1.215.25.477.477.965.694 1.453-.109.033-.228.065-.336.098-4.404 1.42-6.747 5.303-6.942 5.629a8.522 8.522 0 01-2.19-5.705zM12 20.547a8.482 8.482 0 01-5.239-1.8c.152-.315 1.888-3.656 6.703-5.337.022-.01.033-.01.054-.022a35.318 35.318 0 011.823 6.475 8.4 8.4 0 01-3.341.684zm4.761-1.465c-.086-.52-.542-3.015-1.659-6.084 2.679-.423 5.022.271 5.314.369a8.468 8.468 0 01-3.655 5.715z" clip-rule="evenodd" /></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    </body>
+</html>
